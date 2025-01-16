@@ -1,3 +1,5 @@
+// src/components/birthdays/CSVImport.tsx
+
 import React, { useState } from 'react';
 import { Upload, X, AlertTriangle } from 'lucide-react';
 import Papa from 'papaparse';
@@ -50,7 +52,8 @@ export function CSVImport({ onImport }: CSVImportProps) {
               lastName: row['Last Name'].trim(),
               birthDate: row['Birthday'],
               afterSunset: row['After Sunset']?.toLowerCase() === 'yes',
-              gender: row['Gender']?.toLowerCase() || 'unknown'
+              gender: row['Gender']?.toLowerCase() || 'unknown',
+              createdBy: "IMPORTED_VIA_CSV" // ✅ הוספת createdBy כדי שהמחיקה תעבוד
             });
           });
 
